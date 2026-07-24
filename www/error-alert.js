@@ -20,7 +20,7 @@
 
     var REPO_GITHUB = 'Zishof/ais-stok-opname-android';
     var NAMA_APLIKASI = 'AIS Stok Opname Android';
-    var VERSI_APLIKASI = '1.1.1';
+    var VERSI_APLIKASI = '1.1.2';
 
     // ==== Riwayat error lokal -- app ini TIDAK punya layar "Log Error" tersendiri spt Desktop, jadi
     // SETIAP alert yg tampil (lihat tampilkan()) juga dicatat ke localStorage supaya kasir/admin bisa
