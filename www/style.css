@@ -65,6 +65,18 @@ button { font-family: inherit; }
 .upd-banner button { flex-shrink: 0; border: none; border-radius: 8px; padding: 6px 12px; font-size: 11.5px; font-weight: 800; cursor: pointer; }
 .upd-banner .btn-lihat { background: #fff; color: var(--primary); }
 .upd-banner .btn-nanti { background: rgba(255,255,255,.22); color: #fff; }
+.upd-status { font-size: 12px; font-weight: 700; color: var(--primary); background: var(--bg); padding: 9px 12px; border-radius: 9px; margin: 0 0 12px; }
+.upd-status.error { color: var(--danger); background: var(--danger-50); }
+.overlay { position: fixed; inset: 0; background: rgba(15,23,42,.5); display: none; align-items: flex-end; justify-content: center; z-index: 80; }
+.overlay.tampil { display: flex; }
+@media (min-width: 600px) { .overlay { align-items: center; } }
+.modal { background: var(--surface); border-radius: 18px 18px 0 0; width: 100%; max-width: 460px; max-height: 88vh; overflow-y: auto; box-shadow: var(--shadow-lg); }
+@media (min-width: 600px) { .modal { border-radius: 18px; } }
+.modal-kepala { display: flex; align-items: center; justify-content: space-between; padding: 16px 18px 12px; position: sticky; top: 0; background: var(--surface); }
+.modal-kepala h3 { margin: 0; font-size: 15px; font-weight: 800; }
+.modal-tutup { background: var(--bg); border: none; width: 30px; height: 30px; border-radius: 9px; font-size: 14px; cursor: pointer; }
+.modal-isi { padding: 4px 18px 20px; padding-bottom: calc(20px + var(--safe-bottom)); }
+.btn-teks { background: none; border: none; color: var(--primary); font-weight: 700; font-size: 12.5px; padding: 10px; width: 100%; cursor: pointer; }
 .topbar { flex-shrink: 0; display: flex; align-items: center; gap: 10px; padding: 10px 14px; padding-top: calc(10px + var(--safe-top)); background: var(--surface); border-bottom: 1px solid var(--border); }
 .topbar .brand { font-weight: 800; font-size: 14.5px; }
 .topbar .toko { font-size: 11px; color: var(--muted); }

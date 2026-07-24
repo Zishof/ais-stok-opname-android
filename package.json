@@ -1,6 +1,6 @@
 {
   "name": "ais-stok-opname-android",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "AIS Stok Opname - aplikasi Android khusus entry stok opname (gaya supermarket/minimarket): scan barcode (hardware scanner/PDT via keyboard-wedge, atau kamera via ML Kit), input stok fisik, sinkron ke server AIS (PosApi.java, aksi so_*).",
   "private": true,
   "scripts": {
@@ -15,6 +15,7 @@
     "@capacitor/app": "^6.0.2",
     "@capacitor/browser": "^6.0.3",
     "@capacitor/core": "^6.2.0",
+    "@capacitor/filesystem": "^6.0.4",
     "@capacitor/preferences": "^6.0.3"
   },
   "devDependencies": {
