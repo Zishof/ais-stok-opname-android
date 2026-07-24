@@ -1,0 +1,8 @@
+{
+  "appId": "id.ecampus.ais.stokopname.android",
+  "appName": "AIS Stok Opname",
+  "webDir": "www",
+  "android": {
+    "allowMixedContent": true
+  }
+}

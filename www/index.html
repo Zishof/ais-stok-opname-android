@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data: https: http:; connect-src *;">
+<title>AIS Stok Opname</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ==== Layar Masuk ==== -->
+<div class="layar aktif" id="layarLogin">
+    <div class="kartu-login">
+        <h1>&#128230; AIS Stok Opname</h1>
+        <p class="sub">Entry stok opname -- scan &amp; sinkron</p>
+        <div class="pesan-error" id="loginError"></div>
+
+        <div class="field"><label>Alamat Server (host)</label><input type="text" id="inHost" placeholder="mis. sekolah.ais-app.id" autocapitalize="off" autocorrect="off"></div>
+        <div class="field"><label>Context Path</label><input type="text" id="inContextPath" placeholder="mis. ais" autocapitalize="off" autocorrect="off"></div>
+        <div class="chk-row"><input type="checkbox" id="inHttps" checked><label for="inHttps">Gunakan HTTPS</label></div>
+
+        <hr class="pemisah">
+        <div class="field"><label>Userid</label><input type="text" id="inUserid" autocapitalize="off" autocorrect="off"></div>
+        <div class="field"><label>Kata Sandi</label><input type="password" id="inPassword"></div>
+
+        <button class="btn-utama" id="btnMasuk">Masuk</button>
+    </div>
+</div>
+
+<!-- ==== Layar Utama ==== -->
+<div class="layar" id="layarUtama">
+    <div class="topbar">
+        <div>
+            <div class="brand">Stok Opname</div>
+            <div class="toko" id="txtNamaToko">-</div>
+        </div>
+        <div class="spacer"></div>
+        <span class="pill-status offline" id="pillStatus"><span class="dot"></span><span id="txtStatus">Memeriksa...</span></span>
+        <button class="btn-ikon" id="btnKeluar" title="Keluar">&#8630;</button>
+    </div>
+
+    <div class="bar-sesi">
+        <span id="txtSesiInfo">Memuat sesi...</span>
+        <div class="spacer"></div>
+        <button id="btnSelesaikanSesi" style="display:none;">Selesaikan Sesi</button>
+    </div>
+
+    <div class="ringkas-bar">
+        <div class="kartu-ringkas"><div class="angka" id="ringkasProduk">0</div><div class="label">Produk</div></div>
+        <div class="kartu-ringkas lebih"><div class="angka" id="ringkasLebih">0</div><div class="label">Lebih</div></div>
+        <div class="kartu-ringkas kurang"><div class="angka" id="ringkasKurang">0</div><div class="label">Kurang</div></div>
+    </div>
+
+    <div class="zona-scan">
+        <div class="baris-scan">
+            <input type="text" id="inBarcode" placeholder="Scan atau ketik barcode, lalu Enter" autocomplete="off" autocapitalize="off" autocorrect="off">
+            <button class="btn-kamera" id="btnKamera" title="Scan pakai kamera">&#128247;</button>
+        </div>
+    </div>
+
+    <div class="konten-scroll">
+        <div id="wadahHasilScan"></div>
+
+        <div class="riwayat-judul">Riwayat Hari Ini</div>
+        <div id="wadahRiwayat"></div>
+    </div>
+</div>
+
+<div class="overlay-kamera" id="overlayKamera">
+    <button class="btn-tutup-kamera" id="btnTutupKamera">&#10005;</button>
+    <div class="bingkai-scan"></div>
+    <div class="petunjuk-kamera">Arahkan kamera ke barcode produk</div>
+</div>
+
+<div class="layar-muat" id="layarMuat"><div class="spinner"></div><div id="txtLayarMuat">Memuat...</div></div>
+<div class="toast" id="toast"></div>
+
+<script src="api.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

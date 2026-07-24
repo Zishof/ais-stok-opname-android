@@ -1,0 +1,22 @@
+{
+  "name": "ais-stok-opname-android",
+  "version": "1.0.0",
+  "description": "AIS Stok Opname - aplikasi Android khusus entry stok opname (gaya supermarket/minimarket): scan barcode (hardware scanner/PDT via keyboard-wedge, atau kamera via ML Kit), input stok fisik, sinkron ke server AIS (PosApi.java, aksi so_*).",
+  "private": true,
+  "scripts": {
+    "sync": "cap sync android",
+    "open:android": "cap open android",
+    "build:debug": "cd android && ./gradlew.bat assembleDebug",
+    "build:release": "cd android && ./gradlew.bat assembleRelease"
+  },
+  "dependencies": {
+    "@capacitor-mlkit/barcode-scanning": "^6.2.0",
+    "@capacitor/android": "^6.2.0",
+    "@capacitor/app": "^6.0.2",
+    "@capacitor/core": "^6.2.0",
+    "@capacitor/preferences": "^6.0.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.2.0"
+  }
+}

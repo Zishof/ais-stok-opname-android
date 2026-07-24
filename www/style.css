@@ -1,0 +1,122 @@
+:root {
+    --primary: #2563eb; --primary-dark: #1d4ed8; --primary-50: #eff6ff;
+    --ink: #1e293b; --muted: #64748b; --faint: #94a3b8; --border: #e2e8f0; --bg: #f1f5f9; --surface: #ffffff;
+    --danger: #dc2626; --danger-50: #fef2f2; --success: #16a34a; --success-50: #f0fdf4; --warning: #d97706; --warning-50: #fffbeb;
+    --radius: 14px; --shadow-sm: 0 1px 2px rgba(15,23,42,.06); --shadow-lg: 0 16px 40px rgba(15,23,42,.18);
+    --safe-top: env(safe-area-inset-top, 0px); --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { height: 100%; }
+body { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; background: var(--bg); color: var(--ink); font-size: 14px; -webkit-font-smoothing: antialiased; overflow: hidden; }
+input, textarea { user-select: text; }
+button { font-family: inherit; }
+
+.layar { position: fixed; inset: 0; display: none; flex-direction: column; }
+.layar.aktif { display: flex; }
+
+#layarLogin { align-items: center; justify-content: center; background: linear-gradient(160deg, var(--primary) 0%, #0891b2 100%); padding: 20px; padding-top: calc(20px + var(--safe-top)); }
+.kartu-login { background: var(--surface); border-radius: 20px; box-shadow: var(--shadow-lg); width: 100%; max-width: 380px; padding: 28px 24px; max-height: calc(100vh - 40px); overflow-y: auto; }
+.kartu-login h1 { font-size: 19px; margin: 0 0 4px; font-weight: 800; text-align: center; }
+.kartu-login .sub { font-size: 12.5px; color: var(--muted); text-align: center; margin: 0 0 20px; }
+.field { margin-bottom: 12px; }
+.field label { display: block; font-size: 11.5px; font-weight: 700; color: var(--muted); margin-bottom: 5px; }
+.field input { width: 100%; padding: 12px 13px; border: 1.5px solid var(--border); border-radius: 10px; font-size: 15px; outline: none; }
+.field input:focus { border-color: var(--primary); }
+.chk-row { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+.chk-row input { width: 17px; height: 17px; accent-color: var(--primary); }
+.chk-row label { font-size: 12.5px; font-weight: 600; }
+.btn-utama { width: 100%; padding: 14px; background: var(--primary); color: #fff; border: none; border-radius: 12px; font-size: 14.5px; font-weight: 800; cursor: pointer; }
+.btn-utama:active { background: var(--primary-dark); }
+.btn-utama:disabled { opacity: .55; }
+.btn-sekunder { width: 100%; padding: 12px; background: var(--surface); color: var(--ink); border: 1.5px solid var(--border); border-radius: 12px; font-size: 13.5px; font-weight: 700; cursor: pointer; }
+.pemisah { border: none; border-top: 1px dashed var(--border); margin: 16px 0; }
+.pesan-error { background: var(--danger-50); color: var(--danger); font-size: 12px; font-weight: 600; padding: 9px 12px; border-radius: 9px; margin-bottom: 12px; display: none; }
+.pesan-error.tampil { display: block; }
+
+/* ==== Layar utama ==== */
+.topbar { flex-shrink: 0; display: flex; align-items: center; gap: 10px; padding: 10px 14px; padding-top: calc(10px + var(--safe-top)); background: var(--surface); border-bottom: 1px solid var(--border); }
+.topbar .brand { font-weight: 800; font-size: 14.5px; }
+.topbar .toko { font-size: 11px; color: var(--muted); }
+.topbar .spacer { flex: 1; }
+.pill-status { font-size: 10.5px; font-weight: 800; padding: 4px 9px; border-radius: 999px; display: flex; align-items: center; gap: 4px; }
+.pill-status.online { background: var(--success-50); color: var(--success); }
+.pill-status.offline { background: var(--danger-50); color: var(--danger); }
+.pill-status .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.btn-ikon { width: 34px; height: 34px; border-radius: 9px; border: 1.5px solid var(--border); background: var(--surface); font-size: 15px; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; }
+
+.bar-sesi { flex-shrink: 0; display: flex; align-items: center; gap: 8px; padding: 8px 14px; background: var(--primary-50); border-bottom: 1px solid var(--border); font-size: 11.5px; color: var(--primary); font-weight: 700; }
+.bar-sesi .spacer { flex: 1; }
+.bar-sesi button { background: none; border: none; color: var(--primary); font-weight: 800; font-size: 11px; cursor: pointer; text-decoration: underline; }
+
+.ringkas-bar { flex-shrink: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 10px 14px; }
+.kartu-ringkas { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 9px 10px; text-align: center; }
+.kartu-ringkas .angka { font-size: 16px; font-weight: 800; }
+.kartu-ringkas .label { font-size: 9.5px; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .02em; }
+.kartu-ringkas.lebih .angka { color: var(--success); }
+.kartu-ringkas.kurang .angka { color: var(--danger); }
+
+.zona-scan { flex-shrink: 0; padding: 6px 14px 12px; }
+.baris-scan { display: flex; gap: 8px; }
+.baris-scan input { flex: 1; padding: 14px 15px; border: 2px solid var(--primary); border-radius: 12px; font-size: 16px; outline: none; background: var(--surface); }
+.btn-kamera { width: 50px; flex-shrink: 0; border-radius: 12px; border: none; background: var(--primary); color: #fff; font-size: 20px; cursor: pointer; }
+
+.konten-scroll { flex: 1; overflow-y: auto; padding: 0 14px 14px; -webkit-overflow-scrolling: touch; }
+
+.kartu-produk-scan { background: var(--surface); border: 1.5px solid var(--primary); border-radius: 14px; padding: 14px; margin-bottom: 14px; box-shadow: var(--shadow-sm); }
+.kartu-produk-scan .nama { font-size: 15px; font-weight: 800; margin-bottom: 2px; }
+.kartu-produk-scan .kode { font-size: 11.5px; color: var(--muted); margin-bottom: 10px; }
+.baris-info-scan { display: flex; justify-content: space-between; font-size: 12.5px; margin-bottom: 4px; }
+.baris-info-scan .v { font-weight: 800; }
+.field-fisik { margin-top: 10px; }
+.field-fisik input { width: 100%; padding: 13px; border: 1.5px solid var(--border); border-radius: 10px; font-size: 20px; font-weight: 800; text-align: center; outline: none; }
+.field-fisik input:focus { border-color: var(--primary); }
+.baris-tombol-scan { display: flex; gap: 8px; margin-top: 12px; }
+.baris-tombol-scan button { flex: 1; }
+
+.riwayat-judul { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .03em; color: var(--muted); margin: 4px 0 8px; }
+.baris-riwayat { display: flex; align-items: center; gap: 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; margin-bottom: 7px; }
+.baris-riwayat .info { flex: 1; min-width: 0; }
+.baris-riwayat .nama { font-size: 12.5px; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.baris-riwayat .sub { font-size: 10.5px; color: var(--muted); }
+.badge-selisih { font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 999px; flex-shrink: 0; }
+.badge-selisih.plus { background: var(--success-50); color: var(--success); }
+.badge-selisih.minus { background: var(--danger-50); color: var(--danger); }
+.badge-selisih.nol { background: var(--bg); color: var(--muted); }
+
+.kosong-riwayat { text-align: center; color: var(--faint); padding: 30px 16px; font-size: 12px; }
+
+/* ==== Overlay kamera ====
+   PENTING: plugin @capacitor-mlkit/barcode-scanning merender pratinjau kamera sbg VIEW NATIF di
+   BELAKANG WebView -- supaya terlihat, WebView (html/body + seluruh leluhur overlay ini) WAJIB
+   transparan selama scan berlangsung, bukan cuma div overlay ini sendiri. Kelas `.mode-scan-kamera`
+   di <body> (lihat app.js) menangani itu; overlay ini sendiri background TRANSPARAN (bukan hitam)
+   supaya kamera asli yang tampak, bukan warna solid. */
+.overlay-kamera { position: fixed; inset: 0; background: transparent; z-index: 90; display: none; align-items: center; justify-content: center; }
+.overlay-kamera.tampil { display: flex; }
+.overlay-kamera .bingkai-scan { width: 78vw; max-width: 320px; aspect-ratio: 1.6; border: 3px solid #fff; border-radius: 16px; box-shadow: 0 0 0 2000px rgba(0,0,0,.35); }
+.overlay-kamera .btn-tutup-kamera { position: absolute; top: calc(16px + var(--safe-top)); right: 16px; width: 40px; height: 40px; border-radius: 50%; background: rgba(0,0,0,.45); color: #fff; border: none; font-size: 18px; z-index: 91; }
+.overlay-kamera .petunjuk-kamera { position: absolute; bottom: calc(30px + var(--safe-bottom)); left: 0; right: 0; text-align: center; color: #fff; font-size: 13px; font-weight: 600; text-shadow: 0 1px 3px rgba(0,0,0,.8); }
+
+body.mode-scan-kamera { background: transparent !important; }
+body.mode-scan-kamera #layarUtama,
+body.mode-scan-kamera .topbar,
+body.mode-scan-kamera .bar-sesi,
+body.mode-scan-kamera .ringkas-bar,
+body.mode-scan-kamera .zona-scan,
+body.mode-scan-kamera .konten-scroll { visibility: hidden; }
+
+.toast { position: fixed; left: 50%; bottom: calc(20px + var(--safe-bottom)); transform: translateX(-50%); padding: 12px 20px; border-radius: 10px; font-size: 13px; font-weight: 600; color: #fff; box-shadow: var(--shadow-lg); z-index: 200; max-width: 90vw; text-align: center; opacity: 0; pointer-events: none; transition: opacity .2s; }
+.toast.tampil { opacity: 1; }
+.toast.success { background: var(--success); }
+.toast.error { background: var(--danger); }
+.toast.info { background: #334155; }
+
+.layar-muat { position: fixed; inset: 0; background: rgba(241,245,249,.95); display: none; align-items: center; justify-content: center; font-size: 13px; color: var(--muted); z-index: 300; flex-direction: column; gap: 10px; }
+.layar-muat.tampil { display: flex; }
+.spinner { width: 30px; height: 30px; border: 3px solid var(--border); border-top-color: var(--primary); border-radius: 50%; animation: putar .8s linear infinite; }
+@keyframes putar { to { transform: rotate(360deg); } }
+
+/* Tablet: batasi lebar konten tengah supaya tak melebar canggung di layar besar */
+@media (min-width: 700px) {
+    .zona-scan, .konten-scroll, .ringkas-bar { max-width: 640px; margin-left: auto; margin-right: auto; width: 100%; }
+}
